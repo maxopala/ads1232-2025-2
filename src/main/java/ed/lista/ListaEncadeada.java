@@ -31,7 +31,7 @@ public class ListaEncadeada<T> {
         n++;
     }
 
-    public void inserirFim(T valor) {
+    public void adicionar(T valor) {
         if (this.ini == null) {
             this.ini = new No(valor);
             this.fim = this.ini;
@@ -42,6 +42,40 @@ public class ListaEncadeada<T> {
         n++;
     }
 
-    public void
+    public void inserirEm(T valor, int i) {
+        if (i == 0) {
+            inserirIni(valor);
+        } else {
+            No x = new No(valor);
+
+            No p = ini;
+            for (int k = 1; k < i; k++) {
+                p = p.proximo;
+            }
+            x.proximo = p.proximo;
+            p.proximo = x;
+            n++;
+        }
+    }
+
+    public T obterElemento(int i) {
+        No p = this.ini;
+        for (int k = 0; k < i; k++) {
+            p = p.proximo;
+        }
+        return p.valor;
+    }
+
+    int quantidade() {
+        return n;
+    }
+
+    void imprimir() {
+        No p = this.ini;
+        while (p != null) {
+            System.out.println(p.valor);
+            p = p.proximo;
+        }
+    }
 }
 

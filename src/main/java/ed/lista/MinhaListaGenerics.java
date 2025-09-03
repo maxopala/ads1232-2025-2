@@ -6,7 +6,7 @@ public class MinhaListaGenerics<T> {
 
     public MinhaListaGenerics() {
         this.n = 0;
-        this.v = new Object[5];
+        this.v = new Object[5000000];
     }
 
     public void adicionar(T x) {

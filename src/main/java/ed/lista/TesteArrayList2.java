@@ -25,11 +25,11 @@ public class TesteArrayList2 {
 
         Animal a = null;
 
-        int count;
-        if (a instanceof Galinha) {
-            count = ((Galinha)a).botarOvos();
-        } else {
-            count = 1;
-        }
+//        int count;
+//        if (a instanceof Galinha) {
+//            count = ((Galinha)a).botarOvos();
+//        } else {
+//            count = 1;
+//        }
     }
 }
