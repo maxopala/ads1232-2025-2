@@ -1,33 +1,29 @@
 package ed.lista;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
-public class TesteListaEncadeada {
+public class TesteListaSdk {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        Lista<String> l;
+        List<String> l;
 
         boolean sorteio = new Random().nextBoolean();
         if (sorteio) {
-            l = new ListaEncadeada<>();
+            l = new LinkedList<>();
         } else {
-            l = new ListaVetor<>();
+            l = new ArrayList<>();
         }
 
         for (int i = 0; i < 100000; i++) {
-            l.adicionar("nUmErO " + i);
+            l.add("nUmErO " + i);
         }
 
         long inicio = System.currentTimeMillis();
 
-        Iterador<String> x = l.iterador();
-        while (x.hasNext()) {
-            String s = x.next();
-
+//        Iterator<String> x = l.iterator();
+//        while (x.hasNext()) {
+//            String s = x.next();
+        for (String s : l) {
             s = s.toUpperCase();
-
             System.out.println(s);
         }
 

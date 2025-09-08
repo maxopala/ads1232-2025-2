@@ -1,14 +1,13 @@
 package ed.lista;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TesteLista {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        MinhaListaGenerics<String> l = new MinhaListaGenerics<>();
-        MinhaListaGenerics<Integer> l2 = new MinhaListaGenerics<>();
+        ListaVetor<String> l = new ListaVetor<>();
+        ListaVetor<Integer> l2 = new ListaVetor<>();
 //        ArrayList a = new ArrayList();
 
         int x;

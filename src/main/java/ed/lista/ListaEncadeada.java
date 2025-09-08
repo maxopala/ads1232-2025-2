@@ -1,10 +1,30 @@
 package ed.lista;
 
-public class ListaEncadeada<T> {
+public class ListaEncadeada<T> implements Lista<T> {
 
     private No ini;
     private No fim;
     private int n;
+
+    public class IteradorListaEncadeada implements Iterador<T> {
+        private No p;
+
+        IteradorListaEncadeada(No p) {
+            this.p = p;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return p != null;
+        }
+
+        @Override
+        public T next() {
+            T v = p.valor;
+            p = p.proximo;
+            return v;
+        }
+    }
 
     private class No {
         T valor;
@@ -31,6 +51,7 @@ public class ListaEncadeada<T> {
         n++;
     }
 
+    @Override
     public void adicionar(T valor) {
         if (this.ini == null) {
             this.ini = new No(valor);
@@ -58,6 +79,7 @@ public class ListaEncadeada<T> {
         }
     }
 
+    @Override
     public T obterElemento(int i) {
         No p = this.ini;
         for (int k = 0; k < i; k++) {
@@ -66,7 +88,8 @@ public class ListaEncadeada<T> {
         return p.valor;
     }
 
-    int quantidade() {
+    @Override
+    public int quantidade() {
         return n;
     }
 
@@ -76,6 +99,11 @@ public class ListaEncadeada<T> {
             System.out.println(p.valor);
             p = p.proximo;
         }
+    }
+
+    @Override
+    public Iterador<T> iterador() {
+        return new IteradorListaEncadeada(this.ini);
     }
 }
 
